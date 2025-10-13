@@ -1,0 +1,7 @@
+# ninja log v5
+19	2941	7820170385305759	TTMSqueezer/CMakeFiles/TTMSqueezer.dir/src/main.cpp.obj	6da2fac7c886bae3
+26	2994	7820168464694233	TTMSqueezer/CMakeFiles/TTMSqueezer.dir/src/ttm_calculator.cpp.obj	5eb5468cd6a9def4
+2942	3580	7820170386953240	TTMSqueezer/TTMSqueezer.exe	7a757a5245b4dd07
+3	2756	7818897544306868	TTMSqueezer/CMakeFiles/TTMSqueezer.dir/data/yfinance_client.cpp.obj	c0efd81fb01337c8
+29	492	7820176955842647	build.ninja	cb5637491e8bd833
+33	3019	7818891710751750	TTMSqueezer/CMakeFiles/TTMSqueezer.dir/data/parse_json.cpp.obj	4251416c80721796
