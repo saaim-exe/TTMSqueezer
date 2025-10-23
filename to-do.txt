@@ -1,0 +1,7 @@
+
+
+// FIX THIS BOOST RANDOM LINKER ERROR 
+
+likely something with old vcpkg webscoketpp 
+might need to remove and reinstall and use websockett as header only 
+

@@ -4,6 +4,7 @@
 #include <curl/curl.h>
 #include "yfinance_client.h"
 #include <ttm_calculator.h>
+#include "finnhub_client.h"
 
 
 
@@ -36,7 +37,17 @@ int main()
 		std::cout << "No Squeeze Currently :( \n"; 
 	}
 
+	Finnhub f; 
 
+	auto api_key = f.getAPIKey();
+
+	f.Init();
+
+
+	if (api_key)
+	{
+		std::cout << "API Key: " << *api_key << '\n'; 
+	}
 
 	curl_global_cleanup(); 
 	return 0;

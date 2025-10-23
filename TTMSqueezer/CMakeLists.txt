@@ -6,22 +6,38 @@
 add_executable(TTMSqueezer
 src/main.cpp
 src/ttm_calculator.cpp
-data/yfinance_client.cpp "data/include/parse_json.h" "data/parse_json.cpp")
+data/yfinance_client.cpp "data/include/parse_json.h" "data/parse_json.cpp" "data/include/finnhub_client.h" "data/finnhub_client.cpp" )
 
 target_include_directories(TTMSqueezer
 	PRIVATE 
 	${CMAKE_CURRENT_SOURCE_DIR}/include
 	${CMAKE_CURRENT_SOURCE_DIR}/data/include
+    C:/Users/1942/vcpkg/installed/x64-windows/include
 )
+
+target_compile_definitions(TTMSqueezer PRIVATE
+    ASIO_STANDALONE
+    _WEBSOCKETPP_CPP11_STL
+    _WEBSOCKETPP_NO_BOOST_RANDOM
+)
+
 
 file(GLOB_RECURSE DATA_HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/data/include/*.h")
 source_group("Header Files\\Data" FILES ${DATA_HEADERS})
-
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET TTMSqueezer PROPERTY CXX_STANDARD 20)
 endif()
 
 find_package(CURL REQUIRED)
+find_package(OpenSSL REQUIRED)
+find_package(asio CONFIG REQUIRED)
 
-target_link_libraries(TTMSqueezer CURL::libcurl)
+
+target_link_libraries(TTMSqueezer
+    PRIVATE
+       CURL::libcurl
+       OpenSSL::SSL
+       OpenSSL::Crypto
+       asio
+)
