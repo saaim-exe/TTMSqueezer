@@ -1,7 +1,10 @@
 #include "finnhub_client.h"
+#include "parse_json.h"
+
 
 #pragma message("ASIO_STANDALONE is defined")
 #pragma message("_WEBSOCKETPP_NO_BOOST_RANDOM is defined")
+
 
 
 
@@ -116,16 +119,73 @@ void Finnhub::on_open(websocketpp::connection_hdl hdl, client* c)
 		std::cout << "Subscribed!" << std::endl; 
 	}
 
-	// will add more stocks later 
-	std::string subscribeMsg = 	R"({"type":"subscribe","symbol":"BINANCE:BTCUSDT"})";
-	c->send(hdl, subscribeMsg, websocketpp::frame::opcode::text); 
+	// FOR FUTURE ------->>>> ADD MORE EXCHANGE/SYMBOL PAIRS
+
+
+	std::unique_lock<std::shared_mutex> lock(finnhub_mutex); 
+	
+	std::vector<std::pair<std::string, std::string>> pairs =
+	{
+		// exchange - symbol
+
+		{"BINANCE", "BTCUSDT"},
+		{"BINANCE", "SOLUSDT"},
+		{"COINBASE", "BTC-USD"},
+		{"COINBASE", "SOL-USD"},
+	};
+
+	for (const auto& [ex, sym] : pairs)
+	{
+		std::string subscribeMsg = R"({"type":"subscribe","symbol":")" + ex + ":" + sym + R"("})";
+		std::cout << "Subscribing to: " << subscribeMsg << std::endl;
+		c->send(hdl, subscribeMsg, websocketpp::frame::opcode::text);
+	}
+
 }
 
 void Finnhub::on_message(websocketpp::connection_hdl hdl, client::message_ptr msg)
 {
-	std::cout << "Finnhub Message Received: " << msg->get_payload() << std::endl; 
 
+	std::unique_lock<std::shared_mutex> lock(finnhub_mutex);
+
+
+	//deserialize 
+	auto payload = msg->get_payload(); 
+	auto j = json::parse(payload); 
+
+	std::cout << "Finnhub Message Received: " << payload << std::endl; 
+
+	if (j["type"] == "trade")
+	{
+
+		for (auto d : j["data"])
+		{
+			TradeData trade
+			{
+				d["p"].get<double>(),
+				d["s"].get<std::string>(),
+				d["t"].get<long long>(),
+				d["v"].get<double>()
+			}; 
+
+			std::string symbol_full = d["s"]; 
+			auto pos = symbol_full.find(':'); 
+			std::string exchange = symbol_full.substr(0, pos); 
+			std::string symbol = symbol_full.substr(pos + 1); 
+
+			trade_data[exchange][symbol].push_back(trade); 
+
+			latest_trade[exchange][symbol] = trade; 
+	
+
+		}
+	}
+		
+		
 }
+
+
+
 void Finnhub::on_close(websocketpp::connection_hdl hdl)
 {
 	std::cout << "Websocket Connection Failed!" << std::endl; 

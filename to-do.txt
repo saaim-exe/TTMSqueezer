@@ -5,3 +5,14 @@
 likely something with old vcpkg webscoketpp 
 might need to remove and reinstall and use websockett as header only 
 
+// next task 
+
+-> we need to extract all the data being sent via the exchanges into extracatable data (json convereter pars_json.h)
+-> use logic from ttm_calculator.h/cpp to caluclate realtime moving averages, then variance sd.. etc. until finally bollinger band and keltner channels to predict the TTM squeeze 
+
+// ONLY ONCE LOGIC IS WORKING 
+
+-> start wroking on gui 
+
+-> something lightweight and scalable for multiple tickers, also user-friendly and documentable 
+
