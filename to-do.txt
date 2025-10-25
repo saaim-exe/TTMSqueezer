@@ -16,3 +16,10 @@ might need to remove and reinstall and use websockett as header only
 
 -> something lightweight and scalable for multiple tickers, also user-friendly and documentable 
 
+
+
+// PLAN FOR TODAY 
+
+-> clean and organize our project structure 
+-> start working on indicator logic 
+
