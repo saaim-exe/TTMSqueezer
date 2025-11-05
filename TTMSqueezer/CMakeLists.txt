@@ -7,8 +7,10 @@ include_directories(${CMAKE_SOURCE_DIR}/include)
 add_executable(TTMSqueezer
 src/main.cpp
 src/ttm_calculator.cpp
-data/yfinance_client.cpp "data/include/parse_json.h" "data/parse_json.cpp" "data/include/finnhub_client.h" "data/finnhub_client.cpp"  "include/core/TradeData.h" "include/datafeed/IDataFeed.h"
- "include/datafeed/FinnhubFeed.h" "src/datafeed/FinnhubFeed.cpp" "include/core/Config.h" "src/core/Config.cpp" "include/core/Logger.h" "src/core/Logger.cpp")
+ "include/indicators/TTMCalculator.h"
+ "include/strategy/"
+ "include/core/TradeData.h" "include/datafeed/IDataFeed.h"
+ "include/datafeed/FinnhubFeed.h" "src/datafeed/FinnhubFeed.cpp" "include/core/Config.h" "src/core/Config.cpp" "include/core/Logger.h" "src/core/Logger.cpp" "include/core/ParseJSON.h" "src/core/ParseJSON.cpp" "src/core/TradeData.cpp" "src/datafeed/YFinanceFeed.cpp" "include/datafeed/YFinanceFeed.h" "src/indicators/TTMCalculator.cpp")
 
 target_include_directories(TTMSqueezer
 	PRIVATE 

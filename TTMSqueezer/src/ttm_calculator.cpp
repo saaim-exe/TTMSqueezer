@@ -1,5 +1,4 @@
 #include "ttm_calculator.h"
-#include <yfinance_client.h>
 #include <vector>
 #include <algorithm>
 #include <iomanip>

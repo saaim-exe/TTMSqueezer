@@ -3,30 +3,20 @@
 #include <vector>
 #include <curl/curl.h>
 #include <core/Logger.h>
+#include <core/Config.h>
 
 
 int main()
 {
+	//setup 
 	curl_global_init(CURL_GLOBAL_DEFAULT);
-
-
 	Logger::getInstance().enableConsole(true); 
 	Logger::getInstance().log(LogLevel::INFO, "System Starting!"); 
-
-
-
-
-
+	Config::printAPIKey(); 
+	
 
 
 		
-
-
-
-
-
-
-
 
 
 	

@@ -1,4 +1,4 @@
-
+#pragma once
 #include <ctime>
 #include <sstream>
 #include <chrono>

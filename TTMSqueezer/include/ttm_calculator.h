@@ -1,8 +1,6 @@
 #pragma once
 #include <nlohmann/json.hpp>
-#include "yfinance_client.h"
-#include "parse_json.h"
-
+#include <core/ParseJSON.h>
 	
 using json = nlohmann::json; 
 

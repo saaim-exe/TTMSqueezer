@@ -95,33 +95,6 @@ build TTMSqueezer\CMakeFiles\TTMSqueezer.dir\src\ttm_calculator.cpp.obj: CXX_COM
   TARGET_COMPILE_PDB = TTMSqueezer\CMakeFiles\TTMSqueezer.dir\
   TARGET_PDB = TTMSqueezer\TTMSqueezer.pdb
 
-build TTMSqueezer\CMakeFiles\TTMSqueezer.dir\data\yfinance_client.cpp.obj: CXX_COMPILER__TTMSqueezer_unscanned_Debug C$:\Users\1942\source\repos\TTMSqueezer\TTMSqueezer\data\yfinance_client.cpp || cmake_object_order_depends_target_TTMSqueezer
-  DEFINES = -DASIO_STANDALONE -D_WEBSOCKETPP_CPP11_STL -D_WEBSOCKETPP_NO_BOOST_RANDOM
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
-  INCLUDES = -IC:\Users\1942\source\repos\TTMSqueezer\include -IC:\Users\1942\source\repos\TTMSqueezer\TTMSqueezer\include -IC:\Users\1942\source\repos\TTMSqueezer\TTMSqueezer\data\include -external:IC:\Users\1942\vcpkg\installed\x64-windows\include -external:W0
-  OBJECT_DIR = TTMSqueezer\CMakeFiles\TTMSqueezer.dir
-  OBJECT_FILE_DIR = TTMSqueezer\CMakeFiles\TTMSqueezer.dir\data
-  TARGET_COMPILE_PDB = TTMSqueezer\CMakeFiles\TTMSqueezer.dir\
-  TARGET_PDB = TTMSqueezer\TTMSqueezer.pdb
-
-build TTMSqueezer\CMakeFiles\TTMSqueezer.dir\data\parse_json.cpp.obj: CXX_COMPILER__TTMSqueezer_unscanned_Debug C$:\Users\1942\source\repos\TTMSqueezer\TTMSqueezer\data\parse_json.cpp || cmake_object_order_depends_target_TTMSqueezer
-  DEFINES = -DASIO_STANDALONE -D_WEBSOCKETPP_CPP11_STL -D_WEBSOCKETPP_NO_BOOST_RANDOM
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
-  INCLUDES = -IC:\Users\1942\source\repos\TTMSqueezer\include -IC:\Users\1942\source\repos\TTMSqueezer\TTMSqueezer\include -IC:\Users\1942\source\repos\TTMSqueezer\TTMSqueezer\data\include -external:IC:\Users\1942\vcpkg\installed\x64-windows\include -external:W0
-  OBJECT_DIR = TTMSqueezer\CMakeFiles\TTMSqueezer.dir
-  OBJECT_FILE_DIR = TTMSqueezer\CMakeFiles\TTMSqueezer.dir\data
-  TARGET_COMPILE_PDB = TTMSqueezer\CMakeFiles\TTMSqueezer.dir\
-  TARGET_PDB = TTMSqueezer\TTMSqueezer.pdb
-
-build TTMSqueezer\CMakeFiles\TTMSqueezer.dir\data\finnhub_client.cpp.obj: CXX_COMPILER__TTMSqueezer_unscanned_Debug C$:\Users\1942\source\repos\TTMSqueezer\TTMSqueezer\data\finnhub_client.cpp || cmake_object_order_depends_target_TTMSqueezer
-  DEFINES = -DASIO_STANDALONE -D_WEBSOCKETPP_CPP11_STL -D_WEBSOCKETPP_NO_BOOST_RANDOM
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
-  INCLUDES = -IC:\Users\1942\source\repos\TTMSqueezer\include -IC:\Users\1942\source\repos\TTMSqueezer\TTMSqueezer\include -IC:\Users\1942\source\repos\TTMSqueezer\TTMSqueezer\data\include -external:IC:\Users\1942\vcpkg\installed\x64-windows\include -external:W0
-  OBJECT_DIR = TTMSqueezer\CMakeFiles\TTMSqueezer.dir
-  OBJECT_FILE_DIR = TTMSqueezer\CMakeFiles\TTMSqueezer.dir\data
-  TARGET_COMPILE_PDB = TTMSqueezer\CMakeFiles\TTMSqueezer.dir\
-  TARGET_PDB = TTMSqueezer\TTMSqueezer.pdb
-
 build TTMSqueezer\CMakeFiles\TTMSqueezer.dir\src\datafeed\FinnhubFeed.cpp.obj: CXX_COMPILER__TTMSqueezer_unscanned_Debug C$:\Users\1942\source\repos\TTMSqueezer\TTMSqueezer\src\datafeed\FinnhubFeed.cpp || cmake_object_order_depends_target_TTMSqueezer
   DEFINES = -DASIO_STANDALONE -D_WEBSOCKETPP_CPP11_STL -D_WEBSOCKETPP_NO_BOOST_RANDOM
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
@@ -149,6 +122,42 @@ build TTMSqueezer\CMakeFiles\TTMSqueezer.dir\src\core\Logger.cpp.obj: CXX_COMPIL
   TARGET_COMPILE_PDB = TTMSqueezer\CMakeFiles\TTMSqueezer.dir\
   TARGET_PDB = TTMSqueezer\TTMSqueezer.pdb
 
+build TTMSqueezer\CMakeFiles\TTMSqueezer.dir\src\core\ParseJSON.cpp.obj: CXX_COMPILER__TTMSqueezer_unscanned_Debug C$:\Users\1942\source\repos\TTMSqueezer\TTMSqueezer\src\core\ParseJSON.cpp || cmake_object_order_depends_target_TTMSqueezer
+  DEFINES = -DASIO_STANDALONE -D_WEBSOCKETPP_CPP11_STL -D_WEBSOCKETPP_NO_BOOST_RANDOM
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
+  INCLUDES = -IC:\Users\1942\source\repos\TTMSqueezer\include -IC:\Users\1942\source\repos\TTMSqueezer\TTMSqueezer\include -IC:\Users\1942\source\repos\TTMSqueezer\TTMSqueezer\data\include -external:IC:\Users\1942\vcpkg\installed\x64-windows\include -external:W0
+  OBJECT_DIR = TTMSqueezer\CMakeFiles\TTMSqueezer.dir
+  OBJECT_FILE_DIR = TTMSqueezer\CMakeFiles\TTMSqueezer.dir\src\core
+  TARGET_COMPILE_PDB = TTMSqueezer\CMakeFiles\TTMSqueezer.dir\
+  TARGET_PDB = TTMSqueezer\TTMSqueezer.pdb
+
+build TTMSqueezer\CMakeFiles\TTMSqueezer.dir\src\core\TradeData.cpp.obj: CXX_COMPILER__TTMSqueezer_unscanned_Debug C$:\Users\1942\source\repos\TTMSqueezer\TTMSqueezer\src\core\TradeData.cpp || cmake_object_order_depends_target_TTMSqueezer
+  DEFINES = -DASIO_STANDALONE -D_WEBSOCKETPP_CPP11_STL -D_WEBSOCKETPP_NO_BOOST_RANDOM
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
+  INCLUDES = -IC:\Users\1942\source\repos\TTMSqueezer\include -IC:\Users\1942\source\repos\TTMSqueezer\TTMSqueezer\include -IC:\Users\1942\source\repos\TTMSqueezer\TTMSqueezer\data\include -external:IC:\Users\1942\vcpkg\installed\x64-windows\include -external:W0
+  OBJECT_DIR = TTMSqueezer\CMakeFiles\TTMSqueezer.dir
+  OBJECT_FILE_DIR = TTMSqueezer\CMakeFiles\TTMSqueezer.dir\src\core
+  TARGET_COMPILE_PDB = TTMSqueezer\CMakeFiles\TTMSqueezer.dir\
+  TARGET_PDB = TTMSqueezer\TTMSqueezer.pdb
+
+build TTMSqueezer\CMakeFiles\TTMSqueezer.dir\src\datafeed\YFinanceFeed.cpp.obj: CXX_COMPILER__TTMSqueezer_unscanned_Debug C$:\Users\1942\source\repos\TTMSqueezer\TTMSqueezer\src\datafeed\YFinanceFeed.cpp || cmake_object_order_depends_target_TTMSqueezer
+  DEFINES = -DASIO_STANDALONE -D_WEBSOCKETPP_CPP11_STL -D_WEBSOCKETPP_NO_BOOST_RANDOM
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
+  INCLUDES = -IC:\Users\1942\source\repos\TTMSqueezer\include -IC:\Users\1942\source\repos\TTMSqueezer\TTMSqueezer\include -IC:\Users\1942\source\repos\TTMSqueezer\TTMSqueezer\data\include -external:IC:\Users\1942\vcpkg\installed\x64-windows\include -external:W0
+  OBJECT_DIR = TTMSqueezer\CMakeFiles\TTMSqueezer.dir
+  OBJECT_FILE_DIR = TTMSqueezer\CMakeFiles\TTMSqueezer.dir\src\datafeed
+  TARGET_COMPILE_PDB = TTMSqueezer\CMakeFiles\TTMSqueezer.dir\
+  TARGET_PDB = TTMSqueezer\TTMSqueezer.pdb
+
+build TTMSqueezer\CMakeFiles\TTMSqueezer.dir\src\indicators\TTMCalculator.cpp.obj: CXX_COMPILER__TTMSqueezer_unscanned_Debug C$:\Users\1942\source\repos\TTMSqueezer\TTMSqueezer\src\indicators\TTMCalculator.cpp || cmake_object_order_depends_target_TTMSqueezer
+  DEFINES = -DASIO_STANDALONE -D_WEBSOCKETPP_CPP11_STL -D_WEBSOCKETPP_NO_BOOST_RANDOM
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
+  INCLUDES = -IC:\Users\1942\source\repos\TTMSqueezer\include -IC:\Users\1942\source\repos\TTMSqueezer\TTMSqueezer\include -IC:\Users\1942\source\repos\TTMSqueezer\TTMSqueezer\data\include -external:IC:\Users\1942\vcpkg\installed\x64-windows\include -external:W0
+  OBJECT_DIR = TTMSqueezer\CMakeFiles\TTMSqueezer.dir
+  OBJECT_FILE_DIR = TTMSqueezer\CMakeFiles\TTMSqueezer.dir\src\indicators
+  TARGET_COMPILE_PDB = TTMSqueezer\CMakeFiles\TTMSqueezer.dir\
+  TARGET_PDB = TTMSqueezer\TTMSqueezer.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target TTMSqueezer
@@ -157,7 +166,7 @@ build TTMSqueezer\CMakeFiles\TTMSqueezer.dir\src\core\Logger.cpp.obj: CXX_COMPIL
 #############################################
 # Link the executable TTMSqueezer\TTMSqueezer.exe
 
-build TTMSqueezer\TTMSqueezer.exe: CXX_EXECUTABLE_LINKER__TTMSqueezer_Debug TTMSqueezer\CMakeFiles\TTMSqueezer.dir\src\main.cpp.obj TTMSqueezer\CMakeFiles\TTMSqueezer.dir\src\ttm_calculator.cpp.obj TTMSqueezer\CMakeFiles\TTMSqueezer.dir\data\yfinance_client.cpp.obj TTMSqueezer\CMakeFiles\TTMSqueezer.dir\data\parse_json.cpp.obj TTMSqueezer\CMakeFiles\TTMSqueezer.dir\data\finnhub_client.cpp.obj TTMSqueezer\CMakeFiles\TTMSqueezer.dir\src\datafeed\FinnhubFeed.cpp.obj TTMSqueezer\CMakeFiles\TTMSqueezer.dir\src\core\Config.cpp.obj TTMSqueezer\CMakeFiles\TTMSqueezer.dir\src\core\Logger.cpp.obj | C$:\Users\1942\vcpkg\installed\x64-windows\debug\lib\libcurl-d.lib C$:\Users\1942\vcpkg\installed\x64-windows\debug\lib\libssl.lib C$:\Users\1942\vcpkg\installed\x64-windows\debug\lib\libcrypto.lib
+build TTMSqueezer\TTMSqueezer.exe: CXX_EXECUTABLE_LINKER__TTMSqueezer_Debug TTMSqueezer\CMakeFiles\TTMSqueezer.dir\src\main.cpp.obj TTMSqueezer\CMakeFiles\TTMSqueezer.dir\src\ttm_calculator.cpp.obj TTMSqueezer\CMakeFiles\TTMSqueezer.dir\src\datafeed\FinnhubFeed.cpp.obj TTMSqueezer\CMakeFiles\TTMSqueezer.dir\src\core\Config.cpp.obj TTMSqueezer\CMakeFiles\TTMSqueezer.dir\src\core\Logger.cpp.obj TTMSqueezer\CMakeFiles\TTMSqueezer.dir\src\core\ParseJSON.cpp.obj TTMSqueezer\CMakeFiles\TTMSqueezer.dir\src\core\TradeData.cpp.obj TTMSqueezer\CMakeFiles\TTMSqueezer.dir\src\datafeed\YFinanceFeed.cpp.obj TTMSqueezer\CMakeFiles\TTMSqueezer.dir\src\indicators\TTMCalculator.cpp.obj | C$:\Users\1942\vcpkg\installed\x64-windows\debug\lib\libcurl-d.lib C$:\Users\1942\vcpkg\installed\x64-windows\debug\lib\libssl.lib C$:\Users\1942\vcpkg\installed\x64-windows\debug\lib\libcrypto.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -ZI
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = C:\Users\1942\vcpkg\installed\x64-windows\debug\lib\libcurl-d.lib  C:\Users\1942\vcpkg\installed\x64-windows\debug\lib\libssl.lib  C:\Users\1942\vcpkg\installed\x64-windows\debug\lib\libcrypto.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
