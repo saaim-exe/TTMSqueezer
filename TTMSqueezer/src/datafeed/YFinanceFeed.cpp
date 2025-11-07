@@ -59,7 +59,7 @@ std::string YFinanceFeed::fetch(const std::string& symbol, const unsigned int& l
 
 		}; 
 
-		buffer.push_back(trade); 
+		buffer.push(trade); 
 		response_buffer = response.substr(0, length);
 		return response.substr(0, length);
 

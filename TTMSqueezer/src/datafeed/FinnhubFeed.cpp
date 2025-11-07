@@ -2,7 +2,59 @@
 
 void FinnhubFeed::Init() {
 
-	FinnhubWS::client c;
+
+	try {
+
+		// configurations 
+		client_.set_access_channels(websocketpp::log::alevel::all);
+		client_.clear_access_channels(websocketpp::log::alevel::frame_payload);
+		client_.set_error_channels(websocketpp::log::elevel::all);
+
+		client_.init_asio();
+
+		//message / tls handlers 
+
+		client_.set_message_handler(bind(&FinnhubFeed::on_message, this, FinnhubWS::_1, FinnhubWS::_2));
+
+		std::string hostname = "ws.finnhub.io";
+
+		
+		if (!apiKey_)
+		{
+			Logger::getInstance().log(LogLevel::ERR, "MISSING API KEY!"); 
+			return; 
+		}
+		
+		std::string uri = "wss://" + hostname + "/?token=" + apiKey_.value();
+
+		client_.set_tls_init_handler(bind(&FinnhubFeed::Init_TLS, this, hostname.c_str(), FinnhubWS::_1));
+		client_.set_open_handler(bind(&FinnhubFeed::on_open, this, FinnhubWS::_1, &client_));
+		client_.set_fail_handler(bind(&FinnhubFeed::on_fail, this, FinnhubWS::_1));
+
+		client_.set_close_handler(bind(&FinnhubFeed::on_close, this, FinnhubWS::_1));
+		client_.set_error_channels(websocketpp::log::elevel::all);
+
+		websocketpp::lib::error_code ec;
+		FinnhubWS::client::connection_ptr connection_ptr = client_.get_connection(uri, ec);
+		if (ec) {
+
+			std::cout << "Failed to Create Connection: " << ec.message() << std::endl;
+			return;
+		}
+
+		client_.connect(connection_ptr);
+
+		//webocket connection is configured in separate thread 
+		ws_thread_ = std::thread([this]() {
+			client_.run();
+			}); 
+		
+	}
+	catch (const websocketpp::exception& e)
+	{
+		std::cout << "Websocket Exception: " << e.what() << std::endl;
+
+	}
 
 }
 
@@ -77,7 +129,7 @@ void FinnhubFeed::on_message(websocketpp::connection_hdl hdl, FinnhubWS::client:
 	auto payload = msg->get_payload();
 	auto j = json::parse(payload);
 
-	std::cout << "Finnhub Message Received: " << payload << std::endl;
+//	std::cout << "Finnhub Message Received: " << payload << std::endl;
 
 	if (j["type"] == "trade")
 	{

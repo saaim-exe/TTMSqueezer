@@ -15,6 +15,7 @@
 #include "core/TradeData.h"
 #include "datafeed/IDataFeed.h"
 #include "core/ParseJSON.h"
+#include "core/Config.h"
 #include "core/Logger.h"
 
 #include <optional>
@@ -24,6 +25,7 @@
 #include <queue>
 #include <mutex>
 #include <shared_mutex>
+#include <thread>
 #include <map>
 #include <unordered_map>
 #include <iostream>
@@ -51,10 +53,7 @@ namespace FinnhubWS {
 class FinnhubFeed : public IDataFeed {
 	
 public:
-
-	
-	~FinnhubFeed() { Logger::getInstance().log(LogLevel::INFO, "Finnhub Destroyed!"); }
-	
+		
 	bool getNext(TradeData& t) override {
 		
 		std::lock_guard<std::mutex> lock(buffer_mutex); 
@@ -70,7 +69,7 @@ public:
 		return false; 
 	}
 
-	void Init(); 
+	void Init() override; 
 
 	FinnhubWS::context_ptr Init_TLS(const char* hostname, websocketpp::connection_hdl hdl); 
 
@@ -81,6 +80,15 @@ public:
 	void on_close(websocketpp::connection_hdl hdl);
 
 	// accessors 
+
+
+	size_t size() const override {
+		
+		std::lock_guard<std::mutex> lock(buffer_mutex);
+	
+		return buffer.size(); 
+	}
+
 
 	std::vector<std::string> getExchanges() const noexcept {
 		return exchanges;
@@ -96,9 +104,23 @@ public:
 	std::shared_mutex& mutex() const { return finnhub_mutex; }
 
 
+	~FinnhubFeed() {
+
+		if (ws_thread_.joinable())
+		{
+			ws_thread_.join();
+		}
+		Logger::getInstance().log(LogLevel::INFO, "Finnhub Destroyed!");
+	}
+
+
 private:
 
-	mutable std::optional<std::string> apiKey_;
+	FinnhubWS::client client_; 
+	std::thread ws_thread_; 
+
+
+	mutable std::optional<std::string> apiKey_ = Config::getAPIKey(); 
 	mutable std::shared_mutex finnhub_mutex;
 	mutable std::mutex buffer_mutex; 
 

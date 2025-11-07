@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <iomanip>
 
-BollingerResult TTM::BollingerBands(size_t period) {
+/*BollingerResult TTM::BollingerBands(size_t period) {
 
 	// calculate SMA 
 	//
@@ -135,3 +135,4 @@ bool TTM::isSqueezeActive() const {
 
 	return squeeze; 
 }
+*/

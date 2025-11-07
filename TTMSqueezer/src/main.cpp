@@ -1,9 +1,19 @@
-﻿#include <iostream>
-#include <string>
-#include <vector>
-#include <curl/curl.h>
+﻿#include <curl/curl.h>
 #include <core/Logger.h>
 #include <core/Config.h>
+#include <core/ParseJSON.h>
+#include <core/TradeData.h>
+#include <datafeed/IDataFeed.h>
+#include <datafeed/FinnhubFeed.h>
+#include <datafeed/YFinanceFeed.h>
+#include <indicators/TTMCalculator.h>
+
+#include <memory>
+#include <string>
+#include <mutex>
+#include <thread>
+#include <vector>
+#include <iostream>
 
 
 int main()
@@ -12,8 +22,16 @@ int main()
 	curl_global_init(CURL_GLOBAL_DEFAULT);
 	Logger::getInstance().enableConsole(true); 
 	Logger::getInstance().log(LogLevel::INFO, "System Starting!"); 
-	Config::printAPIKey(); 
+
+	TTM t(std::make_unique<FinnhubFeed>()); 
+
+	Logger::getInstance().log(LogLevel::INFO, "TTM constructed!");
+
+	std::thread ttm_thread(&TTM::BollingerBands, &t, 20);
 	
+	ttm_thread.join(); 
+
+
 
 
 		

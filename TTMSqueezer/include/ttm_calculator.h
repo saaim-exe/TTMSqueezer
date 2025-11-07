@@ -2,9 +2,9 @@
 #include <nlohmann/json.hpp>
 #include <core/ParseJSON.h>
 	
-using json = nlohmann::json; 
+// using json = nlohmann::json; 
 
-struct BollingerResult {
+/*struct BollingerResult {
 	double sma; 
 	double upper_band; 
 	double lower_band; 
@@ -59,4 +59,4 @@ private:
 	double atr;
 
 
-};
+};*/
