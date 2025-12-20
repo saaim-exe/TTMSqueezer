@@ -22,4 +22,3 @@ might need to remove and reinstall and use websockett as header only
 
 -> clean and organize our project structure 
 -> start working on indicator logic 
-

@@ -49,6 +49,21 @@ namespace FinnhubWS {
 
 } 
 
+enum class exchange_hash {
+	BINANCE,
+	COINBASE,
+	UKNOWN
+};
+
+
+enum class symbol_hash {
+	BTCUSDT, // binance
+	SOLUSDT, // binance
+	BTC_USD,// coinbase
+	SOL_USD,// coinbase
+	UKNOWN
+};
+
 
 class FinnhubFeed : public IDataFeed {
 	
@@ -79,6 +94,9 @@ public:
 	void on_fail(websocketpp::connection_hdl hdl);
 	void on_close(websocketpp::connection_hdl hdl);
 
+	exchange_hash hash_exchange(const std::string& ex); 
+	symbol_hash hash_symbol(const std::string& sym); 
+
 	// accessors 
 
 
@@ -102,7 +120,6 @@ public:
 
 
 	std::shared_mutex& mutex() const { return finnhub_mutex; }
-
 
 	~FinnhubFeed() {
 

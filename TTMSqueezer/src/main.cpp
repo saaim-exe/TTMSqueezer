@@ -22,16 +22,15 @@ int main()
 	curl_global_init(CURL_GLOBAL_DEFAULT);
 	Logger::getInstance().enableConsole(true); 
 	Logger::getInstance().log(LogLevel::INFO, "System Starting!"); 
-
+	
 	TTM t(std::make_unique<FinnhubFeed>()); 
+	
 
 	Logger::getInstance().log(LogLevel::INFO, "TTM constructed!");
 
 	std::thread ttm_thread(&TTM::BollingerBands, &t, 20);
 	
 	ttm_thread.join(); 
-
-
 
 
 		

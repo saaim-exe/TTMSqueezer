@@ -155,15 +155,63 @@ void FinnhubFeed::on_message(websocketpp::connection_hdl hdl, FinnhubWS::client:
 
 			{
 				std::lock_guard<std::mutex> q_lock(buffer_mutex);
-
-				// consider .emplace (std::move(trade))) for performance later ... 
-				buffer.push(trade); 
+				// buffer.push(trade); 
+				buffer.emplace(std::move(trade)); 
 			}
 
 		}
 	}
 
 }
+
+
+exchange_hash FinnhubFeed::hash_exchange(const std::string& ex)
+{
+	if (ex == "BINANCE")
+	{
+		return exchange_hash::BINANCE; 
+	}
+	else if (ex == "COINBASE")
+	{
+		return exchange_hash::COINBASE; 
+	}
+	else
+	{
+		Logger::getInstance().log(LogLevel::ERR, "INVALID EXCHANGE!"); 
+		return exchange_hash::UKNOWN; 
+	}
+
+	return exchange_hash::UKNOWN;
+}
+symbol_hash FinnhubFeed::hash_symbol(const std::string& sym) {
+
+	if (sym == "BTCUSDT")
+	{
+		return symbol_hash::BTCUSDT; 
+	}
+	else if (sym == "SOLUSDT")
+	{
+		return symbol_hash::SOLUSDT; 
+	}
+	else if (sym == "BTC_USD" || sym == "BTC-USD")
+	{
+		return symbol_hash::BTC_USD; 
+	}
+	else if (sym == "SOL_USD" || sym == "SOL-USD")
+	{
+		return symbol_hash::SOL_USD;
+	}
+	else
+	{
+		Logger::getInstance().log(LogLevel::ERR, "INVALID SYMBOL!");
+		return symbol_hash::UKNOWN; 
+	}
+
+
+	return symbol_hash::UKNOWN; 
+}
+
+
 
 void FinnhubFeed::on_fail(websocketpp::connection_hdl hdl) {
 
